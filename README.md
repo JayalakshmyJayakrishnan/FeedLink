@@ -53,16 +53,11 @@ FeedLink is a platform that connects food donors with recipients in real time, e
 ## Demo Images & Video
 ### Screenshots
 <center>
-<img src="![img1](https://github.com/user-attachments/assets/e7fe2fb9-774c-4e65-8ccc-d4f21771fcca)
- " alt="Welcome Screen" width="500">
-<img src="![img2](https://github.com/user-attachments/assets/e1212bfa-7bed-4c23-9272-7169dc036762)
- " alt="User Authentication" width="500">
-   <img src="![img3](https://github.com/user-attachments/assets/4b572851-c8aa-4c34-a661-0bccdf5858b2)
-" alt="User Authentication" width="500">
-<img src="![img4](https://github.com/user-attachments/assets/797d8089-9135-4c0f-b613-59956a0f5cef)
- " alt="Food Donation Screen" width="500">
-<img src=" ![img5](https://github.com/user-attachments/assets/9b72770b-efde-4db0-be48-63fc58e31a59)
-" alt="Food Donation Screen" width="500">
+<img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img1.jpeg" alt="Welcome Screen" width="500">
+<img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img2.jpeg" alt="User Authentication" width="500">
+<img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img3.jpeg" alt="User Authentication" width="500">
+<img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img4.jpeg" alt="Food Donation Screen" width="500">
+<img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img5.jpeg" alt="Food Donation Screen" width="500">
   
 </center>
 
