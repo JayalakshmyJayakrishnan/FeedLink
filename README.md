@@ -41,6 +41,23 @@ FeedLink is a platform that connects food donors with recipients in real time, e
    - Geolocation tracking facilitates real-time updates.
 5. **Waste Selling:** Organizations can sell food waste to biofuel companies.
 
+## Demo Images & Video
+### Screenshots
+<center>
+<img src="![img1](https://github.com/user-attachments/assets/a2b1db21-dfb9-452d-8b05-647b31fb39bd)
+" alt="Welcome Screen" width="500">
+<img src="assets/user_auth.png" alt="User Authentication" width="500">
+<img src="assets/food_donation.png" alt="Food Donation Screen" width="500">
+</center>
+
+### Video Demo
+<center>
+<video width="600" controls>
+  <source src="assets/demo_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</center>
+
 ##  Team Contributions
 1. **Frontend Developer:** Designs and implements UI/UX using HTML, CSS, and JavaScript.
 2. **Database Manager:** Manages Firebase integration for storing user data and requests.
