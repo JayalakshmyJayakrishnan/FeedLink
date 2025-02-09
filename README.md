@@ -51,7 +51,7 @@ FeedLink is a platform that connects food donors with recipients in real time, e
 5. **Waste Selling:** Organizations can sell food waste to biofuel companies.
 
 ## Demo Images & Video
-### Screenshots
+### 🔗 Screenshots
 <center>
 <img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img1.jpeg" alt="Welcome Screen" width="500">
 <img src="https://github.com/JayalakshmyJayakrishnan/FeedLink/blob/main/img2.jpeg" alt="User Authentication" width="500">
@@ -61,7 +61,7 @@ FeedLink is a platform that connects food donors with recipients in real time, e
   
 </center>
 
-### Video Demo
+### 🔗 Video Demo
 DRIVE LINK: https://drive.google.com/file/d/1tnDx-mjZipalFzKhdrr1Ey9Z7oHbbZDJ/view?usp=sharing
 
 <center>
@@ -71,18 +71,18 @@ DRIVE LINK: https://drive.google.com/file/d/1tnDx-mjZipalFzKhdrr1Ey9Z7oHbbZDJ/vi
 </video>
 </center>
 
-##  Team Contributions
-1. **Frontend Developer:** Designs and implements UI/UX using HTML, CSS, and JavaScript.
-2. **Database Manager:** Manages Firebase integration for storing user data and requests.
-3. **Integration Specialist:** Connects the frontend with Flask backend and ensures smooth functionality.
+## 🔗 Team Contributions
+1. **Frontend Developement :** Designs and implements UI/UX using HTML, CSS, and JavaScript.
+2. **Database Management :** Manages Firebase integration for storing user data and requests.
+3. **Integratiion part:** Connects the frontend with Flask backend and ensures smooth functionality.
 
-##  Features
+## 🔗 Features
 - **Automated Matching:** Nearest donors/recipients are prioritized.
 - **Real-Time Tracking:** Users can track donation pickup/delivery.
 - **Secure Authentication:** Firebase authentication for secure logins.
 - **Two Modes:** Donate/receive food or sell food waste to biofuel companies.
 
-##  Future Enhancements
+##  🔗Future Enhancements
 - AI-based food demand prediction.
 - Multi-language support.
 - Enhanced reporting & analytics.
