@@ -1,10 +1,10 @@
-// This step initializes map
+// Initialize map
 let map = L.map('map').setView([0, 0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Addition of DOM Elements
+// DOM Elements
 const mainPanel = document.getElementById('mainPanel');
 const swipeIndicator = document.getElementById('swipeIndicator');
 const authSection = document.getElementById('authSection');
@@ -13,7 +13,7 @@ const donationSection = document.getElementById('donationSection');
 const requestSection = document.getElementById('requestSection');
 const biofuelSection = document.getElementById('biofuelSection');
 
-//This section performs swipe detection for the user to move to the next page
+// Swipe Detection
 let touchStartY = 0;
 document.addEventListener('touchstart', e => {
     touchStartY = e.touches[0].clientY;
@@ -28,7 +28,7 @@ document.addEventListener('touchend', e => {
     }
 });
 
-// Click alternative for swipe heh heh
+// Click alternative for swipe
 swipeIndicator.addEventListener('click', showMainPanel);
 
 function showMainPanel() {
@@ -56,7 +56,7 @@ tabBtns.forEach(btn => {
     });
 });
 
-// Registration Type Toggle: Separate login/signup pages for the individual or organization registration 
+// Registration Type Toggle
 const registrationType = document.getElementById('registrationType');
 const individualFields = document.getElementById('individualFields');
 const organizationFields = document.getElementById('organizationFields');
@@ -74,7 +74,7 @@ registrationType.addEventListener('change', () => {
     }
 });
 
-// Form Submissions and asking user to enable location permissions
+// Form Submissions
 loginForm.addEventListener('submit', e => {
     e.preventDefault();
     showUserTypeSelection();
@@ -105,4 +105,4 @@ function showUserTypeSelection() {
     userTypeSection.classList.remove('hidden');
 }
 
-const roleButtons = document.queryS
+const roleButtons = document.queryS
