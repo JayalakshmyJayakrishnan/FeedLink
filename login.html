@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedLink</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<style>
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Map Styles */
+#map {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+/* Header Styles */
+.app-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-header h1 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Swipe Indicator */
+.swipe-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    color: white;
+    animation: bounce 2s infinite;
+}
+
+.swipe-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    position: relative;
+}
+
+.swipe-icon::after {
+    content: '↑';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+/* Main Panel */
+.main-panel {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #2d2d2d, #1a1a1a);
+    border-radius: 25px 25px 0 0;
+    padding: 30px;
+    z-index: 1000;
+    transition: bottom 0.5s ease-in-out;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.main-panel.active {
+    bottom: 0;
+}
+
+/* Form Styles */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.role-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.role-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Tab Styles */
+.tab-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #4CAF50;
+}
+
+/* List Styles */
+.donor-list, .organization-list {
+    margin-top: 20px;
+}
+
+.list-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translate(-50%, 0)}
+    40% {transform: translate(-50%, -10px)}
+    60% {transform: translate(-50%, -5px)}
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+</style>
+<body>
+    <div class="container">
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- App Header -->
+        <div class="app-header">
+            <h1>FeedLink</h1>
+            <p class="tagline">Connecting food donors with those in need</p>
+        </div>
+
+        <!-- Swipe Indicator -->
+        <div class="swipe-indicator" id="swipeIndicator">
+            <div class="swipe-icon"></div>
+            <p>Swipe up to continue</p>
+        </div>
+
+        <!-- Main Panel -->
+        <div class="main-panel" id="mainPanel">
+            <!-- Authentication Section -->
+            <div id="authSection" class="section">
+                <div class="tab-container">
+                    <a href='/map'>
+
+                        <button class="tab-btn active" data-tab="login">Login</button>
+                    </a>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn primary-btn">Login</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form hidden">
+                    <select id="registrationType" required>
+                        <option value="">Select Registration Type</option>
+                        <option value="individual">Individual</option>
+                        <option value="organization">Organization</option>
+                    </select>
+
+                    <!-- Individual Fields -->
+                    <div id="individualFields" class="hidden">
+                        <input type="text" placeholder="Username" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Address" required>
+                    </div>
+
+                    <!-- Organization Fields -->
+                    <div id="organizationFields" class="hidden">
+                        <input type="text" placeholder="Organization Name" required>
+                        <input type="text" placeholder="Organization Address" required>
+                        <input type="tel" placeholder="Contact Number" required>
+                        <input type="email" placeholder="Official Email" required>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn">
+                        <a href='/map'>
+                            Continue
+                        </a>
+                        </button>
+                    </form>
+            </div>
+
+            <!-- User Type Selection -->
+            <div id="userTypeSection" class="section hidden">
+                <h2>I want to...</h2>
+                <div class="role-buttons">
+                    <button class="btn role-btn" data-role="donor">
+                        <span class="icon">🤲</span>
+                        Donate Food
+                    </button>
+                    <button class="btn role-btn" data-role="recipient">
+                        <span class="icon">🙏</span>
+                        Receive Food
+                    </button>
+                    <button class="btn role-btn" data-role="biofuel">
+                        <span class="icon">♻</span>
+                        Sell Leftover Waste
+                    </button>
+                </div>
+            </div>
+
+            <!-- Food Donation Form -->
+            
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
