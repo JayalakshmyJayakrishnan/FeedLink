@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedLink</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Map Container: Connects the donor with the recipient -->
+        <div id="map"></div>
 
+        <!-- App Header -->
+        <div class="app-header">
+            <h1>FeedLink</h1>
+            <p class="tagline">Connecting food donors with those in need</p>
+        </div>
+
+        <!-- Swipe Indicator:Enables swiping of pages -->
+        <div class="swipe-indicator" id="swipeIndicator">
+            <div class="swipe-icon"></div>
+            <p>Swipe up to continue</p>
+        </div>
+
+        <!-- Main Panel -->
+        <div class="main-panel" id="mainPanel">
+            <!-- Authentication Section: Login/Signup page -->
+            <div id="authSection" class="section">
+                <div class="tab-container">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn primary-btn">Login</button>
+                </form>
+
+                <!-- Signup Form: Two options: Individual/ Organization -->
+                <form id="signupForm" class="auth-form hidden">
+                    <select id="registrationType" required>
+                        <option value="">Select Registration Type</option>
+                        <option value="individual">Individual</option>
+                        <option value="organization">Organization</option>
+                    </select>
+
+                    <!-- Individual Signup Fields -->
+                    <div id="individualFields" class="hidden">
+                        <input type="text" placeholder="Username" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Address" required>
+                    </div>
+
+                    <!-- Organization Signup Fields -->
+                    <div id="organizationFields" class="hidden">
+                        <input type="text" placeholder="Organization Name" required>
+                        <input type="text" placeholder="Organization Address" required>
+                        <input type="tel" placeholder="Contact Number" required>
+                        <input type="email" placeholder="Official Email" required>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn">Continue</button>
+                </form>
+            </div>
+
+            <!-- User Type Selection -->
+            <div id="userTypeSection" class="section hidden">
+                <h2>I want to...</h2>
+                <div class="role-buttons">
+                    <button class="btn role-btn" data-role="donor">
+                        <span class="icon">🤲</span>
+                        Donate Food
+                    </button>
+                    <button class="btn role-btn" data-role="recipient">
+                        <span class="icon">🙏</span>
+                        Receive Food
+                    </button>
+                    <button class="btn role-btn" data-role="biofuel">
+                        <span class="icon">♻️</span>
+                        Sell Leftover Waste
+                    </button>
+                </div>
+            </div>
+
+            <!-- Food Donation Form -->
+            <div id="donationSection" class="section hidden">
+                <h2>Donate Food</h2>
+                <form id="donationForm">
+                    <select id="foodType" required>
+                        <option value="">Select Food Type</option>
+                        <option value="veg">Vegetarian</option>
+                        <option value="nonveg">Non-Vegetarian</option>
+                    </select>
+                    <input type="text" placeholder="Food Description" required>
+                    <input type="number" placeholder="Quantity (servings)" required>
+                    <button type="submit" class="btn primary-btn">Submit Donation</button>
+                    <button type="button" class="btn secondary-btn" onclick="goBack()">Back</button>
+                </form>
+            </div>
+
+            <!-- Food Request Section: Veg/Non-veg -->
+            <div id="requestSection" class="section hidden">
+                <h2>Find Food</h2>
+                <select id="foodPreference" required>
+                    <option value="">Select Preference</option>
+                    <option value="veg">Vegetarian</option>
+                    <option value="nonveg">Non-Vegetarian</option>
+                </select>
+                <div id="donorList" class="donor-list"></div>
+                <button class="btn secondary-btn" onclick="goBack()">Back</button>
+            </div>
+
+            <!-- Selling Biofuel Section -->
+            <div id="biofuelSection" class="section hidden">
+                <h2>Biofuel Organizations</h2>
+                <div id="biofuelList" class="organization-list"></div>
+                <button class="btn secondary-btn" onclick="goBack()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
