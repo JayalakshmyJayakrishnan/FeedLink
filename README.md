@@ -1,5 +1,14 @@
 # FeedLink - Food Donation & Waste Management System
 
+## Basic Details
+### Team Name: Glitch Mob
+
+
+### Team Members
+- Member 1: Ayisha Sulaiman - Adi Shankara Institute of Engineering and Technology
+- Member 2: Jayalakshmy Jayakrishnan - Adi Shankara Institute of Engineering and Technology
+- Member 3: Nima Fathima - Adi Shankara Institute of Engineering and Technology
+
 ## 🌍 Problem Statement
 Food wastage is a significant global issue, with surplus food often being discarded instead of being redirected to those in need. Additionally, food waste disposal remains inefficient, leading to environmental concerns.
 
@@ -44,15 +53,23 @@ FeedLink is a platform that connects food donors with recipients in real time, e
 ## Demo Images & Video
 ### Screenshots
 <center>
-<img src=" " alt="Welcome Screen" width="500">
-<img src=" " alt="User Authentication" width="500">
-<img src=" " alt="Food Donation Screen" width="500">
+<img src="![img1](https://github.com/user-attachments/assets/e7fe2fb9-774c-4e65-8ccc-d4f21771fcca)
+ " alt="Welcome Screen" width="500">
+<img src="![img2](https://github.com/user-attachments/assets/e1212bfa-7bed-4c23-9272-7169dc036762)
+ " alt="User Authentication" width="500">
+   <img src="![img3](https://github.com/user-attachments/assets/4b572851-c8aa-4c34-a661-0bccdf5858b2)
+" alt="User Authentication" width="500">
+<img src="![img4](https://github.com/user-attachments/assets/797d8089-9135-4c0f-b613-59956a0f5cef)
+ " alt="Food Donation Screen" width="500">
+<img src=" ![img5](https://github.com/user-attachments/assets/9b72770b-efde-4db0-be48-63fc58e31a59)
+" alt="Food Donation Screen" width="500">
+  
 </center>
 
 ### Video Demo
 <center>
 <video width="600" controls>
-  <source src="assets/demo_video.mp4" type="video/mp4">
+  <source src="videodemo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 </center>
