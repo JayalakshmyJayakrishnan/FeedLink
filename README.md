@@ -44,10 +44,7 @@ FeedLink is a platform that connects food donors with recipients in real time, e
 ## Demo Images & Video
 ### Screenshots
 <center>
-<img src="![img1](https://github.com/user-attachments/assets/a2b1db21-dfb9-452d-8b05-647b31fb39bd)
-" alt="Welcome Screen" width="500">
-<img src="assets/user_auth.png" alt="User Authentication" width="500">
-<img src="assets/food_donation.png" alt="Food Donation Screen" width="500">
+
 </center>
 
 ### Video Demo
