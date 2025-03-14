@@ -1,10 +1,10 @@
-// Initialize map
+
 let map = L.map('map').setView([0, 0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// DOM Elements
+
 const mainPanel = document.getElementById('mainPanel');
 const swipeIndicator = document.getElementById('swipeIndicator');
 const authSection = document.getElementById('authSection');
@@ -28,7 +28,7 @@ document.addEventListener('touchend', e => {
     }
 });
 
-// Click alternative for swipe
+
 swipeIndicator.addEventListener('click', showMainPanel);
 
 function showMainPanel() {
